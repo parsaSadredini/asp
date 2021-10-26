@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pluralize</name>
+    </assembly>
+    <members>
+        <member name="T:Pluralize.PlaceHolder">
+            <summary>
+            Holds the information for an individual placeholder (including, eventually, the resulting value).
+            </summary>
+        </member>
+        <member name="F:Pluralize.PlaceHolder.NUMBER_PLACEHOLDER">
+            <summary>
+            The placeholder that represents an actual numeric value.
+            </summary>
+        </member>
+        <member name="P:Pluralize.PlaceHolder.NumberIndex">
+            <summary>
+            Get or set the index of the number against which the pluralization wil be calculated.
+            </summary>
+        </member>
+        <member name="P:Pluralize.PlaceHolder.Singular">
+            <summary>
+            Get or set the singular value of this placeholder.
+            </summary>
+        </member>
+        <member name="P:Pluralize.PlaceHolder.Plural">
+            <summary>
+            Get or set the plural version of this placeholder.
+            </summary>
+        </member>
+        <member name="P:Pluralize.PlaceHolder.Format">
+            <summary>
+            Get or set the formatting string for this value.
+            This is typically only used for the special NUMBER placeholder.
+            </summary>
+        </member>
+        <member name="P:Pluralize.PlaceHolder.Value">
+            <summary>
+            Get or set the final, calculated value for this placeholder.
+            </summary>
+        </member>
+        <member name="P:Pluralize.PlaceHolder.FullString">
+            <summary>
+            Get or set the full string of the placeholder, including the braces, etc.
+            </summary>
+        </member>
+        <member name="P:Pluralize.PlaceHolder.HasFormat">
+            <summary>
+            Get whether this placeholder has a format string.
+            </summary>
+        </member>
+        <member name="P:Pluralize.PlaceHolder.HasPluralDefined">
+            <summary>
+            Get whether this placeholder has plural value explicitly defined.
+            </summary>
+        </member>
+        <member name="P:Pluralize.PlaceHolder.IsNumber">
+            <summary>
+            Get whether this placeholder is the number placeholder.
+            </summary>
+        </member>
+        <member name="T:Pluralize.Pluralizer">
+            <summary>
+            Provide functionality for easily pluralizing sentences.
+            </summary>
+        </member>
+        <member name="F:Pluralize.Pluralizer.PH_HAS_NUM_INDEX">
+            <summary>
+            The index of the group that will not be empty if the placeholder defines a numeric index.
+            </summary>
+        </member>
+        <member name="F:Pluralize.Pluralizer.PH_NUM_INDEX">
+            <summary>
+            The index of the group that holds the placeholder's index in the provided numeric array.
+            </summary>
+        </member>
+        <member name="F:Pluralize.Pluralizer.PH_SINGULAR">
+            <summary>
+            The index of the group that holds the placeholder's name/singular value.
+            </summary>
+        </member>
+        <member name="F:Pluralize.Pluralizer.PH_HAS_PLURAL">
+            <summary>
+            The index of the group that will not be empty if the placeholder defines a plural value.
+            </summary>
+        </member>
+        <member name="F:Pluralize.Pluralizer.PH_PLURAL">
+            <summary>
+            The index of the group that holds the placeholder's plural value.
+            </summary>
+        </member>
+        <member name="F:Pluralize.Pluralizer.PH_HAS_FORMAT">
+            <summary>
+            The index of the group that will not be empty if the placeholder defines a format.
+            </summary>
+        </member>
+        <member name="F:Pluralize.Pluralizer.PH_FORMAT">
+            <summary>
+            The index of the group that holds the placeholder's format.
+            </summary>
+        </member>
+        <member name="F:Pluralize.Pluralizer.LearnedWords">
+            <summary>
+            Hold the learned words and phrases.
+            Start with a basic list of commonly-used ones.
+            </summary>
+        </member>
+        <member name="M:Pluralize.Pluralizer.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Pluralize.Pluralizer.Pluralize(System.String,System.Double)">
+            <summary>
+            Pluralize the <paramref name="sentence"/> using the provided <paramref name="number"/> to decide whether to use the singular or plural version of all placeholders.
+            </summary>
+            <param name="sentence">The sentence (containing the placeholders) to be pluralized.</param>
+            <param name="number">The number that identifies singular or plural.</param>
+            <returns>The correct version of the <paramref name="sentence"/>.</returns>
+        </member>
+        <member name="M:Pluralize.Pluralizer.Pluralize(System.String,System.Int32[])">
+            <summary>
+            Pluralize the <paramref name="sentence"/> using the provided <paramref name="numbers"/> to decide whether to use the singular or plural version of all placeholders (which are encased in squiggly braces).
+            </summary>
+            <param name="sentence">The sentence (containing the placeholders) to be pluralized.</param>
+            <param name="numbers">The numbers that identify singular or plural.</param>
+            <returns>The correct version of the <paramref name="sentence"/>.</returns>
+        </member>
+        <member name="M:Pluralize.Pluralizer.Pluralize(System.String,System.Decimal[])">
+            <summary>
+            Pluralize the <paramref name="sentence"/> using the provided <paramref name="numbers"/> to decide whether to use the singular or plural version of all placeholders (which are encased in squiggly braces).
+            </summary>
+            <param name="sentence">The sentence (containing the placeholders) to be pluralized.</param>
+            <param name="numbers">The numbers that identify singular or plural.</param>
+            <returns>The correct version of the <paramref name="sentence"/>.</returns>
+        </member>
+        <member name="M:Pluralize.Pluralizer.Pluralize(System.String,System.Double[])">
+            <summary>
+            Pluralize the <paramref name="sentence"/> using the provided <paramref name="numbers"/> to decide whether to use the singular or plural version of all placeholders (which are encased in squiggly braces).
+            </summary>
+            <param name="sentence">The sentence (containing the placeholders) to be pluralized.</param>
+            <param name="numbers">The numbers that identify singular or plural.</param>
+            <returns>The correct version of the <paramref name="sentence"/>.</returns>
+        </member>
+        <member name="M:Pluralize.Pluralizer.Learn(System.String,System.String)">
+            <summary>
+            Teach the pluralizer a new singluar/plural pair.
+            </summary>
+            <param name="singular">The singular version of the word or phrase.</param>
+            <param name="plural">The plural version of the word or phrase.</param>
+        </member>
+        <member name="M:Pluralize.Pluralizer.GetNumber(System.Double,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="number"></param>
+            <param name="format"></param>
+            <returns></returns>
+            <remarks>int.ToString() has more format options than double.ToString(). Try converting to an int first.</remarks>
+        </member>
+        <member name="M:Pluralize.Pluralizer.GetManualValue(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pluralize.Pluralizer.GetPlaceholders(System.String)">
+            <summary>
+            Parse out the placeholders from the sentence
+            </summary>
+            <param name="sentence">The sentence that holds the placeholders.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pluralize.Pluralizer.Equals(Pluralize.Pluralizer)">
+            <summary>
+            Test if this instance has the same vocabulary as the <paramref name="other"/> instance.
+            </summary>
+            <param name="other">Another <see cref="T:Pluralize.Pluralizer"/> instance to compare against.</param>
+            <returns>True if both instance have the same vocabulary. Otherwise false.</returns>
+        </member>
+        <member name="M:Pluralize.Pluralizer.Dispose">
+            <summary>
+            Dispose of this instance (really, this just clears the learned words).
+            </summary>
+        </member>
+        <member name="M:Pluralize.Pluralizer.Dispose(System.Boolean)">
+            <summary>
+            Disposer.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:Pluralize.Pluralizer.Clone">
+            <summary>
+            Clone this instance.
+            </summary>
+            <returns>Another instance with the same vocabulary.</returns>
+        </member>
+        <member name="P:Pluralize.Pluralizer.Instance">
+            <summary>
+            Get a basic instance of the pluralizer for 'quick and dirty' pluralization.
+            Consider using an instance that can <see cref="M:Pluralize.Pluralizer.Learn(System.String,System.String)"/> new plurals.
+            </summary>
+        </member>
+    </members>
+</doc>
